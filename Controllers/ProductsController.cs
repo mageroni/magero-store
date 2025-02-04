@@ -1,8 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using magero_store.Models;
 using magero_store.Data;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;  // Changed from System.Data.SqlClient
 using Dapper;
+using System.Linq;
 
 namespace magero_store.Controllers
 {
