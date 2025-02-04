@@ -16,9 +16,15 @@ namespace magero_store.Controllers
             _configuration = configuration;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(CategoryEnum? category = null)
         {
-            return View(SampleData.Products);
+            var products = SampleData.Products;
+            if (category.HasValue)
+            {
+                products = products.Where(p => p.Category == category).ToList();
+            }
+            ViewBag.Categories = Enum.GetValues(typeof(CategoryEnum));
+            return View(products);
         }
 
         public IActionResult Details(int id)
@@ -38,8 +44,8 @@ namespace magero_store.Controllers
             {
                 connection.Open();
                 // Vulnerable code: Direct string concatenation in SQL query
-                var sql = "SELECT * FROM Products WHERE Name LIKE '%" + searchTerm + "%' OR Description LIKE '%" + searchTerm + "%'";
-                var products = connection.Query<Product>(sql).ToList();
+                var sql = "SELECT * FROM Products WHERE Name LIKE @SearchTerm OR Description LIKE @SearchTerm";
+                var products = connection.Query<Product>(sql, new { SearchTerm = "%" + searchTerm + "%" }).ToList();
                 return View("Index", products);
             }
         }
