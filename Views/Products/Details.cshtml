@@ -1,0 +1,26 @@
+@using magero_store.Models
+@model magero_store.Models.Product
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<h1>@Model.Name</h1>
+
+<div>
+    <img src="@Model.ImageUrl" alt="@Model.Name" />
+</div>
+
+<div>
+    <h2>Price: @Model.Price.ToString("C")</h2>
+    <p>@Model.Description</p>
+</div>
+
+<form asp-action="AddToCart" asp-controller="Cart">
+    <input type="hidden" name="productId" value="@Model.Id" />
+    <label for="quantity">Quantity:</label>
+    <input type="number" name="quantity" id="quantity" value="1" min="1" />
+    <button type="submit">Add to Cart</button>
+</form>
+
+<a asp-controller="Products" asp-action="Index">Back to Products</a>

@@ -1,0 +1,42 @@
+@model IEnumerable<magero_store.Models.Product>
+
+@{
+    ViewData["Title"] = "Home";
+    Layout = "_Layout";
+}
+
+<div class="row mb-4">
+    <div class="col text-center">
+        <h1 class="display-4">Welcome to Magero Store</h1>
+        <p class="lead">Your one-stop shop for amazing products</p>
+    </div>
+</div>
+
+<div class="row my-4">
+    <div class="col-md-6 mx-auto text-center">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Start Shopping</h5>
+                <p class="card-text">Browse our collection of products and find what you need.</p>
+                <a asp-controller="Products" asp-action="Index" class="btn btn-primary">View Products</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    @foreach (var product in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name">
+                <div class="card-body">
+                    <h5 class="card-title">@product.Name</h5>
+                    <p class="card-text">@product.Description</p>
+                    <p class="card-text"><strong>Price: $@product.Price.ToString("F2")</strong></p>
+                    <a href="@Url.Action("Details", "Products", new { id = product.Id })" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

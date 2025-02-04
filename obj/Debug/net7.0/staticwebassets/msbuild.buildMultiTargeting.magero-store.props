@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/magero-store.props" />
+</Project>
