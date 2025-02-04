@@ -1,0 +1,3 @@
+- Genera documentación en español en formato XML
+- Utiliza sentencias preparadas para evitar SQL Injection
+- Maximiza la reutilización de código
