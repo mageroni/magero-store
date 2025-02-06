@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RNAE1SKeEulEesVOmcnreblnzLCPsN7Duz152Y+UYhA=",
+  "Hash": "v5uuyb005dM5ZcBh91F1dTt/WLb0vvm3gpPW95rgsxc=",
   "Source": "magero-store",
   "BasePath": "_content/magero-store",
   "Mode": "Default",
@@ -183,6 +183,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/magero/Documents/ForDemos/magero-store/magero-store/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js"
+    },
+    {
+      "Identity": "/Users/magero/Documents/ForDemos/magero-store/magero-store/obj/Debug/net9.0/compressed/39pbc3s1du-7xa973fkfu.gz",
+      "SourceId": "magero-store",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/magero/Documents/ForDemos/magero-store/magero-store/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/magero-store",
+      "RelativePath": "js/products#[.{fingerprint=7xa973fkfu}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Users/magero/Documents/ForDemos/magero-store/magero-store/wwwroot/js/products.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "r9dq0eo2p5",
+      "Integrity": "UUK1TDMo2S7gVY9ykRZkbP6mqjH5Zj23541Gyy7w09g=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/magero/Documents/ForDemos/magero-store/magero-store/wwwroot/js/products.js"
     },
     {
       "Identity": "/Users/magero/Documents/ForDemos/magero-store/magero-store/obj/Debug/net9.0/compressed/4d629asbbj-h1s4sie4z3.gz",
@@ -1359,6 +1380,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.ico"
+    },
+    {
+      "Identity": "/Users/magero/Documents/ForDemos/magero-store/magero-store/wwwroot/js/products.js",
+      "SourceId": "magero-store",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/magero/Documents/ForDemos/magero-store/magero-store/wwwroot/",
+      "BasePath": "_content/magero-store",
+      "RelativePath": "js/products#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "7xa973fkfu",
+      "Integrity": "i+IvBheYKV1mvedd5RjFz24kOCPu4qc6Q6hJe+HSqxg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/products.js"
     },
     {
       "Identity": "/Users/magero/Documents/ForDemos/magero-store/magero-store/wwwroot/js/site.js",
@@ -3236,6 +3278,304 @@
         {
           "Name": "integrity",
           "Value": "sha256-+/824NtfTA0L7Mr42Fo+86YJP4R5cigdi9S7Fx5VVl4="
+        }
+      ]
+    },
+    {
+      "Route": "js/products.7xa973fkfu.js",
+      "AssetFile": "/Users/magero/Documents/ForDemos/magero-store/magero-store/obj/Debug/net9.0/compressed/39pbc3s1du-7xa973fkfu.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002386634845"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "418"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UUK1TDMo2S7gVY9ykRZkbP6mqjH5Zj23541Gyy7w09g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 06 Feb 2025 20:04:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"i+IvBheYKV1mvedd5RjFz24kOCPu4qc6Q6hJe+HSqxg=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7xa973fkfu"
+        },
+        {
+          "Name": "label",
+          "Value": "js/products.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-i+IvBheYKV1mvedd5RjFz24kOCPu4qc6Q6hJe+HSqxg="
+        }
+      ]
+    },
+    {
+      "Route": "js/products.7xa973fkfu.js",
+      "AssetFile": "/Users/magero/Documents/ForDemos/magero-store/magero-store/wwwroot/js/products.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "992"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"i+IvBheYKV1mvedd5RjFz24kOCPu4qc6Q6hJe+HSqxg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 06 Feb 2025 20:04:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7xa973fkfu"
+        },
+        {
+          "Name": "label",
+          "Value": "js/products.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-i+IvBheYKV1mvedd5RjFz24kOCPu4qc6Q6hJe+HSqxg="
+        }
+      ]
+    },
+    {
+      "Route": "js/products.7xa973fkfu.js.gz",
+      "AssetFile": "/Users/magero/Documents/ForDemos/magero-store/magero-store/obj/Debug/net9.0/compressed/39pbc3s1du-7xa973fkfu.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "418"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UUK1TDMo2S7gVY9ykRZkbP6mqjH5Zj23541Gyy7w09g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 06 Feb 2025 20:04:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7xa973fkfu"
+        },
+        {
+          "Name": "label",
+          "Value": "js/products.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-UUK1TDMo2S7gVY9ykRZkbP6mqjH5Zj23541Gyy7w09g="
+        }
+      ]
+    },
+    {
+      "Route": "js/products.js",
+      "AssetFile": "/Users/magero/Documents/ForDemos/magero-store/magero-store/obj/Debug/net9.0/compressed/39pbc3s1du-7xa973fkfu.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002386634845"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "418"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UUK1TDMo2S7gVY9ykRZkbP6mqjH5Zj23541Gyy7w09g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 06 Feb 2025 20:04:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"i+IvBheYKV1mvedd5RjFz24kOCPu4qc6Q6hJe+HSqxg=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-i+IvBheYKV1mvedd5RjFz24kOCPu4qc6Q6hJe+HSqxg="
+        }
+      ]
+    },
+    {
+      "Route": "js/products.js",
+      "AssetFile": "/Users/magero/Documents/ForDemos/magero-store/magero-store/wwwroot/js/products.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "992"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"i+IvBheYKV1mvedd5RjFz24kOCPu4qc6Q6hJe+HSqxg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 06 Feb 2025 20:04:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-i+IvBheYKV1mvedd5RjFz24kOCPu4qc6Q6hJe+HSqxg="
+        }
+      ]
+    },
+    {
+      "Route": "js/products.js.gz",
+      "AssetFile": "/Users/magero/Documents/ForDemos/magero-store/magero-store/obj/Debug/net9.0/compressed/39pbc3s1du-7xa973fkfu.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "418"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UUK1TDMo2S7gVY9ykRZkbP6mqjH5Zj23541Gyy7w09g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 06 Feb 2025 20:04:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-UUK1TDMo2S7gVY9ykRZkbP6mqjH5Zj23541Gyy7w09g="
         }
       ]
     },

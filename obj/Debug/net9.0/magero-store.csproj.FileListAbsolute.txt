@@ -170,3 +170,4 @@
 /Users/magero/Documents/ForDemos/magero-store/magero-store/obj/Debug/net9.0/magero-store.pdb
 /Users/magero/Documents/ForDemos/magero-store/magero-store/obj/Debug/net9.0/magero-store.genruntimeconfig.cache
 /Users/magero/Documents/ForDemos/magero-store/magero-store/obj/Debug/net9.0/ref/magero-store.dll
+/Users/magero/Documents/ForDemos/magero-store/magero-store/obj/Debug/net9.0/compressed/39pbc3s1du-7xa973fkfu.gz

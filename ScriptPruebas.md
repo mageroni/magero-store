@@ -4,5 +4,6 @@
 - Copilot Instructions
 - Review and Comment localmente
 - Agregar funcionalidad de categorias Claude
+
 Futuro:
 - Mostrar Vision/Voice

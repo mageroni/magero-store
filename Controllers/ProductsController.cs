@@ -18,6 +18,10 @@ namespace magero_store.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Categories = SampleData.Products
+                .Select(p => p.Category)
+                .Distinct()
+                .ToList();
             return View(SampleData.Products);
         }
 
@@ -31,17 +35,40 @@ namespace magero_store.Controllers
             return View(product);
         }
 
-        // WARNING: This is deliberately vulnerable to SQL injection!
+        /// <summary>
+        /// Busca productos por término de búsqueda en los datos de muestra.
+        /// </summary>
+        /// <param name="searchTerm">El término de búsqueda.</param>
+        /// <returns>Vista con los productos encontrados.</returns>
         public IActionResult Search(string searchTerm)
         {
-            using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
-            {
-                connection.Open();
-                // Vulnerable code: Direct string concatenation in SQL query
-                var sql = "SELECT * FROM Products WHERE Name LIKE '%" + searchTerm + "%' OR Description LIKE '%" + searchTerm + "%'";
-                var products = connection.Query<Product>(sql).ToList();
-                return View("Index", products);
-            }
+            if (string.IsNullOrEmpty(searchTerm))
+                return View("Index", SampleData.Products);
+
+            var products = SampleData.Products
+                .Where(p => p.Name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) ||
+                           p.Description.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            ViewBag.Categories = SampleData.Products
+                .Select(p => p.Category)
+                .Distinct()
+                .ToList();
+
+            return View("Index", products);
+        }
+
+        /// <summary>
+        /// Filtra productos por categoría.
+        /// </summary>
+        /// <param name="category">La categoría a filtrar.</param>
+        /// <returns>Lista de productos filtrados.</returns>
+        public IActionResult FilterByCategory(string category)
+        {
+            var products = string.IsNullOrEmpty(category) 
+                ? SampleData.Products 
+                : SampleData.Products.Where(p => p.Category == category).ToList();
+            return Json(products);
         }
     }
 }

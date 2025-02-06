@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
+      "Id": "/Users/magero/Documents/ForDemos/magero-store/magero-store/wwwroot/js/products.js",
+      "PackagePath": "staticwebassets/js/products.js"
+    },
+    {
       "Id": "/Users/magero/Documents/ForDemos/magero-store/magero-store/wwwroot/js/site.js",
       "PackagePath": "staticwebassets/js/site.js"
     },
