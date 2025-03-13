@@ -16,14 +16,16 @@ namespace magero_store.Controllers
             _configuration = configuration;
         }
 
-        public IActionResult Index(CategoryEnum? category = null)
+        public IActionResult Index(string searchTerm)
         {
-            var products = SampleData.Products;
-            if (category.HasValue)
+            if(string.IsNullOrEmpty(searchTerm))
             {
-                products = products.Where(p => p.Category == category).ToList();
+                return View(SampleData.Products);
             }
-            ViewBag.Categories = Enum.GetValues(typeof(CategoryEnum));
+
+            // Simulate a search by filtering the in-memory list
+            var products = SampleData.Products;
+            products = products.Where(p => p.Description.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)).ToList();
             return View(products);
         }
 
