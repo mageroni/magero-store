@@ -16,9 +16,17 @@ namespace magero_store.Controllers
             _configuration = configuration;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string searchTerm)
         {
-            return View(SampleData.Products);
+            if(string.IsNullOrEmpty(searchTerm))
+            {
+                return View(SampleData.Products);
+            }
+
+            // Simulate a search by filtering the in-memory list
+            var products = SampleData.Products;
+            products = products.Where(p => p.Description.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)).ToList();
+            return View(products);
         }
 
         public IActionResult Details(int id)
@@ -38,8 +46,8 @@ namespace magero_store.Controllers
             {
                 connection.Open();
                 // Vulnerable code: Direct string concatenation in SQL query
-                var sql = "SELECT * FROM Products WHERE Name LIKE '%" + searchTerm + "%' OR Description LIKE '%" + searchTerm + "%'";
-                var products = connection.Query<Product>(sql).ToList();
+                var sql = "SELECT * FROM Products WHERE Name LIKE @SearchTerm OR Description LIKE @SearchTerm";
+                var products = connection.Query<Product>(sql, new { SearchTerm = "%" + searchTerm + "%" }).ToList();
                 return View("Index", products);
             }
         }

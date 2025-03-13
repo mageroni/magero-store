@@ -1,3 +1,5 @@
+@using magero_store.Models
+@model IEnumerable<Product>
 @{
     ViewData["Title"] = "Products";
     Layout = "_Layout";
@@ -48,3 +50,12 @@
         </div>
     }
 </div>
+
+@section Scripts {
+    <script>
+        function filterByCategory() {
+            var category = document.getElementById('categoryFilter').value;
+            window.location.href = '/Products/Index' + (category ? '?category=' + category : '');
+        }
+    </script>
+}
