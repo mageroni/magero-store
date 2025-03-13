@@ -18,7 +18,7 @@ namespace magero_store.Data
                 Name = "Laptop",
                 Description = "High performance laptop",
                 Price = 999.99M,
-                ImageUrl = "/images/laptop.jpg"
+                ImageUrl = "https://images.unsplash.com/photo-1517336714731-489689fd1ca8"
             },
             new Product
             {
@@ -26,7 +26,7 @@ namespace magero_store.Data
                 Name = "T-Shirt",
                 Description = "Cotton T-Shirt",
                 Price = 19.99M,
-                ImageUrl = "/images/tshirt.jpg"
+                ImageUrl = "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab"
             },
             new Product
             {
@@ -34,7 +34,7 @@ namespace magero_store.Data
                 Name = "Programming Book",
                 Description = "C# Programming Guide",
                 Price = 49.99M,
-                ImageUrl = "/images/book.jpg"
+                ImageUrl = "https://images.unsplash.com/photo-1543002588-bfa74002ed7e"
             },
             new Product
             {
@@ -58,7 +58,7 @@ namespace magero_store.Data
                 Name = "Sunglasses",
                 Description = "UV protection sunglasses with stylish frames",
                 Price = 49.99M,
-                ImageUrl = "https://images.unsplash.com/photo-1504198453319-5ce911bafcde"
+                ImageUrl = "https://images.unsplash.com/photo-1511499767150-a48a237f0083"
             },
             new Product
             {
@@ -66,7 +66,7 @@ namespace magero_store.Data
                 Name = "Backpack",
                 Description = "Spacious and durable backpack for everyday use",
                 Price = 79.99M,
-                ImageUrl = "https://images.unsplash.com/photo-1514474959185-4c1ad6b9a6a3"
+                ImageUrl = "https://images.unsplash.com/photo-1553062407-98eeb64c6a62"
             },
             new Product
             {
