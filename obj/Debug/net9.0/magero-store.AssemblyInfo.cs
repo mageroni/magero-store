@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("magero-store")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+26718f4d3d92613173c4d379ff818c2e09f5d829")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2121056f2b8b58c220929ed8a46f2f25a831bc1b")]
 [assembly: System.Reflection.AssemblyProductAttribute("magero-store")]
 [assembly: System.Reflection.AssemblyTitleAttribute("magero-store")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,3 +1,3 @@
 - Genera documentación en español en formato XML
-- Utiliza sentencias preparadas para evitar SQL Injection
+- Siempre valida los parámetros recibidos y conexiones al iniciar un método
 - Maximiza la reutilización de código
