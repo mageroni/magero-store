@@ -34,5 +34,9 @@ namespace magero_store.Models
         /// </summary>
         public string ImageUrl { get; set; }
 
+        /// <summary>
+        /// Gets or sets the category of the product.
+        /// </summary>
+        public string Category { get; set; }
     }
 }

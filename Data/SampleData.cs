@@ -18,7 +18,8 @@ namespace magero_store.Data
                 Name = "Laptop",
                 Description = "High performance laptop",
                 Price = 999.99M,
-                ImageUrl = "https://images.unsplash.com/photo-1517336714731-489689fd1ca8"
+                ImageUrl = "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
+                Category = "Electronics"
             },
             new Product
             {
@@ -26,7 +27,8 @@ namespace magero_store.Data
                 Name = "T-Shirt",
                 Description = "Cotton T-Shirt",
                 Price = 19.99M,
-                ImageUrl = "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab"
+                ImageUrl = "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+                Category = "Clothing"
             },
             new Product
             {
@@ -34,7 +36,8 @@ namespace magero_store.Data
                 Name = "Programming Book",
                 Description = "C# Programming Guide",
                 Price = 49.99M,
-                ImageUrl = "https://images.unsplash.com/photo-1543002588-bfa74002ed7e"
+                ImageUrl = "https://images.unsplash.com/photo-1543002588-bfa74002ed7e",
+                Category = "Books"
             },
             new Product
             {
@@ -42,7 +45,8 @@ namespace magero_store.Data
                 Name = "Leather Jacket",
                 Description = "Stylish leather jacket for all seasons",
                 Price = 129.99M,
-                ImageUrl = "https://images.unsplash.com/photo-1514996937319-344454492b37"
+                ImageUrl = "https://images.unsplash.com/photo-1514996937319-344454492b37",
+                Category = "Clothing"
             },
             new Product
             {
@@ -50,7 +54,8 @@ namespace magero_store.Data
                 Name = "Sports Watch",
                 Description = "Durable and waterproof sports watch",
                 Price = 199.99M,
-                ImageUrl = "https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b"
+                ImageUrl = "https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b",
+                Category = "Accessories"
             },
             new Product
             {
@@ -58,7 +63,8 @@ namespace magero_store.Data
                 Name = "Sunglasses",
                 Description = "UV protection sunglasses with stylish frames",
                 Price = 49.99M,
-                ImageUrl = "https://images.unsplash.com/photo-1511499767150-a48a237f0083"
+                ImageUrl = "https://images.unsplash.com/photo-1511499767150-a48a237f0083",
+                Category = "Accessories"
             },
             new Product
             {
@@ -66,7 +72,8 @@ namespace magero_store.Data
                 Name = "Backpack",
                 Description = "Spacious and durable backpack for everyday use",
                 Price = 79.99M,
-                ImageUrl = "https://images.unsplash.com/photo-1553062407-98eeb64c6a62"
+                ImageUrl = "https://images.unsplash.com/photo-1553062407-98eeb64c6a62",
+                Category = "Bags"
             },
             new Product
             {
@@ -74,7 +81,8 @@ namespace magero_store.Data
                 Name = "Smartphone",
                 Description = "Latest model smartphone with advanced features",
                 Price = 699.99M,
-                ImageUrl = "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"
+                ImageUrl = "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9",
+                Category = "Electronics"
             },
             new Product
             {
@@ -82,7 +90,8 @@ namespace magero_store.Data
                 Name = "Laptop",
                 Description = "High-performance laptop for work and play",
                 Price = 999.99M,
-                ImageUrl = "https://images.unsplash.com/photo-1517336714731-489689fd1ca8"
+                ImageUrl = "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
+                Category = "Electronics"
             },
             new Product
             {
@@ -90,7 +99,8 @@ namespace magero_store.Data
                 Name = "Headphones",
                 Description = "Noise-cancelling over-ear headphones",
                 Price = 149.99M,
-                ImageUrl = "https://images.unsplash.com/photo-1511367461989-f85a21fda167"
+                ImageUrl = "https://images.unsplash.com/photo-1511367461989-f85a21fda167",
+                Category = "Electronics"
             },
             new Product
             {
@@ -98,7 +108,8 @@ namespace magero_store.Data
                 Name = "Coffee Maker",
                 Description = "Automatic coffee maker with programmable settings",
                 Price = 89.99M,
-                ImageUrl = "https://images.unsplash.com/photo-1509042239860-f550ce710b93"
+                ImageUrl = "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+                Category = "Home Appliances"
             },
             new Product
             {
@@ -106,7 +117,8 @@ namespace magero_store.Data
                 Name = "Blender",
                 Description = "High-speed blender for smoothies and shakes",
                 Price = 59.99M,
-                ImageUrl = "https://images.unsplash.com/photo-1586201375761-83865001b2d7"
+                ImageUrl = "https://images.unsplash.com/photo-1586201375761-83865001b2d7",
+                Category = "Home Appliances"
             },
             new Product
             {
@@ -114,7 +126,8 @@ namespace magero_store.Data
                 Name = "Microwave Oven",
                 Description = "Compact microwave oven with multiple settings",
                 Price = 129.99M,
-                ImageUrl = "https://images.unsplash.com/photo-1586201375761-83865001b2d7"
+                ImageUrl = "https://images.unsplash.com/photo-1586201375761-83865001b2d7",
+                Category = "Home Appliances"
             },
             new Product
             {
@@ -122,7 +135,8 @@ namespace magero_store.Data
                 Name = "Electric Kettle",
                 Description = "Fast-boiling electric kettle with auto shut-off",
                 Price = 39.99M,
-                ImageUrl = "https://images.unsplash.com/photo-1586201375761-83865001b2d7"
+                ImageUrl = "https://images.unsplash.com/photo-1586201375761-83865001b2d7",
+                Category = "Home Appliances"
             },
             new Product
             {
@@ -130,7 +144,8 @@ namespace magero_store.Data
                 Name = "Vacuum Cleaner",
                 Description = "Powerful vacuum cleaner with HEPA filter",
                 Price = 199.99M,
-                ImageUrl = "https://images.unsplash.com/photo-1586201375761-83865001b2d7"
+                ImageUrl = "https://images.unsplash.com/photo-1586201375761-83865001b2d7",
+                Category = "Home Appliances"
             },
             new Product
             {
@@ -138,7 +153,8 @@ namespace magero_store.Data
                 Name = "Gaming Console",
                 Description = "Next-gen gaming console with 4K support",
                 Price = 499.99M,
-                ImageUrl = "https://images.unsplash.com/photo-1586201375761-83865001b2d7"
+                ImageUrl = "https://images.unsplash.com/photo-1586201375761-83865001b2d7",
+                Category = "Electronics"
             },
             new Product
             {
@@ -146,7 +162,8 @@ namespace magero_store.Data
                 Name = "Smart TV",
                 Description = "Ultra HD smart TV with streaming capabilities",
                 Price = 799.99M,
-                ImageUrl = "https://images.unsplash.com/photo-1586201375761-83865001b2d7"
+                ImageUrl = "https://images.unsplash.com/photo-1586201375761-83865001b2d7",
+                Category = "Electronics"
             },
             new Product
             {
@@ -154,7 +171,8 @@ namespace magero_store.Data
                 Name = "Tablet",
                 Description = "Lightweight tablet with high-resolution display",
                 Price = 299.99M,
-                ImageUrl = "https://images.unsplash.com/photo-1586201375761-83865001b2d7"
+                ImageUrl = "https://images.unsplash.com/photo-1586201375761-83865001b2d7",
+                Category = "Electronics"
             },
             new Product
             {
@@ -162,7 +180,8 @@ namespace magero_store.Data
                 Name = "Smart Speaker",
                 Description = "Voice-controlled smart speaker with AI assistant",
                 Price = 99.99M,
-                ImageUrl = "https://images.unsplash.com/photo-1586201375761-83865001b2d7"
+                ImageUrl = "https://images.unsplash.com/photo-1586201375761-83865001b2d7",
+                Category = "Electronics"
             },
             new Product
             {
@@ -170,7 +189,8 @@ namespace magero_store.Data
                 Name = "Fitness Tracker",
                 Description = "Wearable fitness tracker with heart rate monitor",
                 Price = 79.99M,
-                ImageUrl = "https://images.unsplash.com/photo-1586201375761-83865001b2d7"
+                ImageUrl = "https://images.unsplash.com/photo-1586201375761-83865001b2d7",
+                Category = "Wearables"
             }
         };
     }

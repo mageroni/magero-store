@@ -7,6 +7,9 @@ using System.Linq;
 
 namespace magero_store.Controllers
 {
+    /// <summary>
+    /// Handles product-related requests.
+    /// </summary>
     public class ProductsController : Controller
     {
         private readonly IConfiguration _configuration;
@@ -16,16 +19,25 @@ namespace magero_store.Controllers
             _configuration = configuration;
         }
 
-        public IActionResult Index(string searchTerm)
+        /// <summary>
+        /// Displays the list of products, optionally filtered by category.
+        /// </summary>
+        /// <param name="category">The category to filter by.</param>
+        /// <returns>The products view.</returns>
+        public IActionResult Index(string category, string searchTerm)
         {
-            if(string.IsNullOrEmpty(searchTerm))
-            {
-                return View(SampleData.Products);
-            }
-
-            // Simulate a search by filtering the in-memory list
             var products = SampleData.Products;
-            products = products.Where(p => p.Description.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)).ToList();
+            var categories = products.Select(p => p.Category).Distinct().ToList();
+            if (!string.IsNullOrEmpty(category))
+            {
+                products = products.Where(p => p.Category == category).ToList();
+            }
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                products = products.Where(p => p.Description.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)).ToList();
+            }
+            ViewBag.Categories = categories;
+            ViewBag.SelectedCategory = category;
             return View(products);
         }
 
