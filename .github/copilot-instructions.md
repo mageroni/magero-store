@@ -1,3 +1,2 @@
-- Genera documentación en español en formato XML
-- Siempre valida los parámetros recibidos y conexiones al iniciar un método
-- Maximiza la reutilización de código
+- Document all functions and classes using XML format.
+- Run Builds after all new code changes

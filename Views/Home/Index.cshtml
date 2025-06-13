@@ -1,42 +1,154 @@
 @model IEnumerable<magero_store.Models.Product>
 
 @{
-    ViewData["Title"] = "Home";
+    ViewData["Title"] = "Landing page title";
     Layout = "_Layout";
 }
 
-<div class="row mb-4">
-    <div class="col text-center">
-        <h1 class="display-4">Welcome to Magero Store</h1>
-        <p class="lead">Your one-stop shop for amazing products</p>
-    </div>
-</div>
+<div class="container">
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Landing page title</h1>
+            <p>Subheading that sets up context, shares more info about the website, or generally gets people psyched to keep scrolling.</p>
+            <a asp-controller="Products" asp-action="Index" class="btn btn-primary btn-lg">Button</a>
+        </div>
+    </section>
 
-<div class="row my-4">
-    <div class="col-md-6 mx-auto text-center">
-        <div class="card mb-4">
-            <div class="card-body">
-                <h5 class="card-title">Start Shopping</h5>
-                <p class="card-text">Browse our collection of products and find what you need.</p>
-                <a asp-controller="Products" asp-action="Index" class="btn btn-primary">View Products</a>
+    <!-- Hero Image -->
+    <div class="hero-image">
+        <div style="width: 100%; height: 640px; background-color: #F7F7F7; border-radius: 8px; margin-bottom: 80px;"></div>
+    </div>
+
+    <!-- Section 1 -->
+    <h2 class="section-heading">Section heading</h2>
+    <div class="product-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 80px;">
+        <div class="feature-card">
+            <div class="product-image" style="height: 405px;">
+                <div style="width: 100%; height: 100%; background-color: #F7F7F7; border-radius: 8px;"></div>
+            </div>
+            <div class="product-info">
+                <h4 class="product-title">Subheading</h4>
+                <p class="product-description">Body text for whatever you'd like to add more to the subheading.</p>
+            </div>
+        </div>
+        <div class="feature-card">
+            <div class="product-image" style="height: 405px;">
+                <div style="width: 100%; height: 100%; background-color: #F7F7F7; border-radius: 8px;"></div>
+            </div>
+            <div class="product-info">
+                <h4 class="product-title">Subheading</h4>
+                <p class="product-description">Body text for whatever you'd like to expand on the main point.</p>
+            </div>
+        </div>
+        <div class="feature-card">
+            <div class="product-image" style="height: 405px;">
+                <div style="width: 100%; height: 100%; background-color: #F7F7F7; border-radius: 8px;"></div>
+            </div>
+            <div class="product-info">
+                <h4 class="product-title">Subheading</h4>
+                <p class="product-description">Body text for whatever you'd like to share more.</p>
             </div>
         </div>
     </div>
-</div>
 
-<div class="row">
-    @foreach (var product in Model)
-    {
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name">
-                <div class="card-body">
-                    <h5 class="card-title">@product.Name</h5>
-                    <p class="card-text">@product.Description</p>
-                    <p class="card-text"><strong>Price: $@product.Price.ToString("F2")</strong></p>
-                    <a href="@Url.Action("Details", "Products", new { id = product.Id })" class="btn btn-primary">View Details</a>
+    <!-- Section 2 -->
+    <h2 class="section-heading">Section heading</h2>
+    <div style="display: grid; grid-template-columns: 1fr 704px; gap: 32px; margin-bottom: 80px;">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+            <h4 style="margin: 0;">Subheading</h4>
+            <p style="margin: 0;">Body text for whatever you'd like to expand on the main point.</p>
+        </div>
+        <div style="width: 704px; height: 704px; background-color: #F7F7F7; border-radius: 8px 0 0 8px;"></div>
+    </div>
+
+    <!-- Section 3 -->
+    <h2 class="section-heading">Section heading</h2>
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 31px; margin-bottom: 80px;">
+        <div class="feature-card">
+            <div class="product-image" style="height: 341px;">
+                <div style="width: 100%; height: 100%; background-color: #F7F7F7; border-radius: 8px;"></div>
+            </div>
+            <div class="product-info" style="gap: 8px;">
+                <h4 class="product-title">Subheading</h4>
+                <p class="product-description">Body text for whatever you'd like to add more to the subheading.</p>
+            </div>
+        </div>
+        <div class="feature-card">
+            <div class="product-image" style="height: 341px;">
+                <div style="width: 100%; height: 100%; background-color: #F7F7F7; border-radius: 8px;"></div>
+            </div>
+            <div class="product-info" style="gap: 8px;">
+                <h4 class="product-title">Subheading</h4>
+                <p class="product-description">Body text for whatever you'd like to expand on the main point.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4 - Text Content -->
+    <h2 class="section-heading">Section heading</h2>
+    <div style="display: flex; flex-direction: column; gap: 48px; margin-bottom: 80px;">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+            <h4>Subheading</h4>
+            <p>Body text for whatever you'd like to expand on the main point.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+            <h4>Subheading</h4>
+            <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+            <h4>Subheading</h4>
+            <p>Body text for whatever you'd like to add more to the main point. It provides details, explanations, and context.</p>
+        </div>
+    </div>
+
+    <!-- Buttons Section -->
+    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 80px;">
+        <a href="#" class="btn btn-primary">Button</a>
+        <a href="#" class="btn btn-secondary">Secondary button</a>
+    </div>
+
+    <!-- Call to Action Section -->
+    <section style="background-color: #F7F7F7; padding: 80px; text-align: center; margin-bottom: 80px;">
+        <h2 class="section-heading" style="margin: 0 0 40px 0;">Section heading</h2>
+        <div style="display: flex; justify-content: center; gap: 24px;">
+            <a href="#" class="btn btn-primary btn-lg">Button</a>
+            <a href="#" class="btn btn-secondary btn-lg">Secondary button</a>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <h2 class="section-heading">Section heading</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 80px;">
+        <div style="background-color: #FFFFFF; border: 1px solid #E6E6E6; border-radius: 12px; padding: 32px; display: flex; flex-direction: column; gap: 48px;">
+            <h4 style="margin: 0;">"A terrific piece of praise"</h4>
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <div style="width: 45px; height: 45px; border-radius: 50%; background-color: #D9D9D9;"></div>
+                <div>
+                    <div style="font-size: 16px; font-weight: 500; color: #000000;">Name</div>
+                    <div style="font-size: 16px; font-weight: 500; color: #828282;">Description</div>
                 </div>
             </div>
         </div>
-    }
+        <div style="background-color: #FFFFFF; border: 1px solid #E6E6E6; border-radius: 12px; padding: 32px; display: flex; flex-direction: column; gap: 48px;">
+            <h4 style="margin: 0;">"A fantastic bit of feedback"</h4>
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <div style="width: 45px; height: 45px; border-radius: 50%; background-color: #D9D9D9;"></div>
+                <div>
+                    <div style="font-size: 16px; font-weight: 500; color: #000000;">Name</div>
+                    <div style="font-size: 16px; font-weight: 500; color: #828282;">Description</div>
+                </div>
+            </div>
+        </div>
+        <div style="background-color: #FFFFFF; border: 1px solid #E6E6E6; border-radius: 12px; padding: 32px; display: flex; flex-direction: column; gap: 48px;">
+            <h4 style="margin: 0;">"A genuinely glowing review"</h4>
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <div style="width: 45px; height: 45px; border-radius: 50%; background-color: #D9D9D9;"></div>
+                <div>
+                    <div style="font-size: 16px; font-weight: 500; color: #000000;">Name</div>
+                    <div style="font-size: 16px; font-weight: 500; color: #828282;">Description</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
