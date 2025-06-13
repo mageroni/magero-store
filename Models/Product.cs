@@ -34,5 +34,15 @@ namespace magero_store.Models
         /// </summary>
         public string ImageUrl { get; set; }
 
+        /// <summary>
+        /// Identificador de la categoría a la que pertenece el producto.
+        /// </summary>
+        public int? CategoryId { get; set; }
+
+        /// <summary>
+        /// Categoría a la que pertenece el producto.
+        /// </summary>
+        public virtual Category? Category { get; set; }
+
     }
 }
