@@ -29,4 +29,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Establecer COPILOT_AGENT_FIREWALL_ALLOW_LIST_ADDITIONS
-        run: echo "COPILOT_AGENT_FIREWALL_ALLOW_LIST_ADDITIONS=https://www.figma.com" >> $GITHUB_ENV
+        run: echo "COPILOT_AGENT_FIREWALL_ALLOW_LIST_ADDITIONS=https://www.figma.com,https://api.snapcraft.io,https://esm.ubuntu.com" >> $GITHUB_ENV
