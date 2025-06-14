@@ -6,22 +6,59 @@
     Layout = "_Layout";
 }
 
-<h1>@Model.Name</h1>
-
-<div>
-    <img src="@Model.ImageUrl" alt="@Model.Name" />
+<div class="container mt-5">
+    <div class="row g-5">
+        <div class="col-lg-6">
+            <div class="product-image-container">
+                <img src="@Model.ImageUrl" alt="@Model.Name" class="product-detail-image" />
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="product-info">
+                @if (Model.Category != null)
+                {
+                    <div class="mb-3">
+                        <span class="badge bg-gradient-primary category-badge">@Model.Category.Name</span>
+                    </div>
+                }
+                
+                <h1 class="product-title">@Model.Name</h1>
+                <div class="price-section mb-4">
+                    <span class="current-price">@Model.Price.ToString("C")</span>
+                </div>
+                
+                <div class="product-description mb-4">
+                    <p class="lead text-muted">@Model.Description</p>
+                </div>
+                
+                <form asp-action="AddToCart" asp-controller="Cart" method="post" class="add-to-cart-form">
+                    <input type="hidden" name="productId" value="@Model.Id" />
+                    <div class="quantity-section mb-4">
+                        <label for="quantity" class="form-label fw-semibold">Quantity:</label>
+                        <div class="quantity-input-wrapper">
+                            <select name="quantity" id="quantity" class="form-select quantity-select">
+                                @for (int i = 1; i <= 10; i++)
+                                {
+                                    <option value="@i">@i</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-warning btn-lg add-to-cart-btn">
+                            <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-5">
+        <div class="col">
+            <a asp-controller="Products" asp-action="Index" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left me-2"></i>Back to Products
+            </a>
+        </div>
+    </div>
 </div>
-
-<div>
-    <h2>Price: @Model.Price.ToString("C")</h2>
-    <p>@Model.Description</p>
-</div>
-
-<form asp-action="AddToCart" asp-controller="Cart">
-    <input type="hidden" name="productId" value="@Model.Id" />
-    <label for="quantity">Quantity:</label>
-    <input type="number" name="quantity" id="quantity" value="1" min="1" />
-    <button type="submit">Add to Cart</button>
-</form>
-
-<a asp-controller="Products" asp-action="Index">Back to Products</a>

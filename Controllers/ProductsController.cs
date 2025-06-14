@@ -1,55 +1,83 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using magero_store.Models;
 using magero_store.Data;
-using Microsoft.Data.SqlClient;  // Changed from System.Data.SqlClient
-using Dapper;
-using System.Linq;
 
 namespace magero_store.Controllers
 {
     public class ProductsController : Controller
     {
-        private readonly IConfiguration _configuration;
+        private readonly Data.ApplicationDbContext _context;
 
-        public ProductsController(IConfiguration configuration)
+        /// <summary>
+        /// Inicializa una nueva instancia del controlador de productos.
+        /// </summary>
+        /// <param name="context">Contexto de base de datos.</param>
+        public ProductsController(Data.ApplicationDbContext context)
         {
-            _configuration = configuration;
+            _context = context;
         }
 
-        public IActionResult Index(string searchTerm)
+        /// <summary>
+        /// Muestra la lista de productos con filtros opcionales.
+        /// </summary>
+        /// <param name="searchTerm">Término de búsqueda.</param>
+        /// <param name="categoryId">ID de categoría para filtrar.</param>
+        /// <returns>Vista con la lista de productos.</returns>
+        public async Task<IActionResult> Index(string searchTerm, int? categoryId)
         {
-            if(string.IsNullOrEmpty(searchTerm))
+            var products = _context.Products.Include(p => p.Category).AsQueryable();
+
+            if (categoryId.HasValue)
             {
-                return View(SampleData.Products);
+                products = products.Where(p => p.CategoryId == categoryId.Value);
             }
 
-            // Simulate a search by filtering the in-memory list
-            var products = SampleData.Products;
-            products = products.Where(p => p.Description.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)).ToList();
-            return View(products);
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                products = products.Where(p => p.Name.Contains(searchTerm) || p.Description.Contains(searchTerm));
+            }
+
+            ViewBag.Categories = await _context.Categories.ToListAsync();
+            ViewBag.SelectedCategoryId = categoryId;
+
+            return View(await products.ToListAsync());
         }
 
-        public IActionResult Details(int id)
+        /// <summary>
+        /// Muestra los detalles de un producto específico.
+        /// </summary>
+        /// <param name="id">ID del producto.</param>
+        /// <returns>Vista con los detalles del producto.</returns>
+        public async Task<IActionResult> Details(int id)
         {
-            var product = SampleData.Products.FirstOrDefault(p => p.Id == id);
+            var product = await _context.Products
+                .Include(p => p.Category)
+                .FirstOrDefaultAsync(p => p.Id == id);
+            
             if (product == null)
             {
                 return NotFound();
             }
+            
             return View(product);
         }
 
-        // WARNING: This is deliberately vulnerable to SQL injection!
-        public IActionResult Search(string searchTerm)
+        /// <summary>
+        /// Busca productos por término de búsqueda usando Entity Framework.
+        /// </summary>
+        /// <param name="searchTerm">Término de búsqueda.</param>
+        /// <returns>Vista con los resultados de búsqueda.</returns>
+        public async Task<IActionResult> Search(string searchTerm)
         {
-            using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
-            {
-                connection.Open();
-                // Vulnerable code: Direct string concatenation in SQL query
-                var sql = "SELECT * FROM Products WHERE Name LIKE @SearchTerm OR Description LIKE @SearchTerm";
-                var products = connection.Query<Product>(sql, new { SearchTerm = "%" + searchTerm + "%" }).ToList();
-                return View("Index", products);
-            }
+            var products = await _context.Products
+                .Include(p => p.Category)
+                .Where(p => p.Name.Contains(searchTerm) || p.Description.Contains(searchTerm))
+                .ToListAsync();
+
+            ViewBag.Categories = await _context.Categories.ToListAsync();
+            return View("Index", products);
         }
     }
 }

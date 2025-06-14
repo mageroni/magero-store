@@ -41,6 +41,10 @@ obj/
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
 
+# SQLite database files
+*.db-shm
+*.db-wal
+
 # StyleCop
 StyleCopReport.xml
 

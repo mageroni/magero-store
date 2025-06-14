@@ -1,0 +1,48 @@
+@model magero_store.Models.Category
+
+@{
+    ViewData["Title"] = "Category Details";
+    Layout = "_Layout";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col">
+            <h1>@Model.Name</h1>
+            <hr />
+            
+            <dl class="row">
+                <dt class="col-sm-2">Name</dt>
+                <dd class="col-sm-10">@Model.Name</dd>
+                
+                <dt class="col-sm-2">Description</dt>
+                <dd class="col-sm-10">@Model.Description</dd>
+            </dl>
+            
+            @if (Model.Products != null && Model.Products.Any())
+            {
+                <h3>Products in this Category</h3>
+                <div class="row">
+                    @foreach (var product in Model.Products)
+                    {
+                        <div class="col-md-3 mb-3">
+                            <div class="card">
+                                <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name" style="height: 200px; object-fit: cover;">
+                                <div class="card-body">
+                                    <h5 class="card-title">@product.Name</h5>
+                                    <p class="card-text">@product.Price.ToString("C")</p>
+                                    <a href="@Url.Action("Details", "Products", new { id = product.Id })" class="btn btn-primary btn-sm">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+            
+            <div class="mt-4">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>

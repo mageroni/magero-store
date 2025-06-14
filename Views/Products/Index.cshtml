@@ -5,57 +5,191 @@
     Layout = "_Layout";
 }
 
-<div class="row mb-4">
-    <div class="col">
-        <h1 class="display-4">Our Products</h1>
-        <form asp-action="Search" asp-controller="Products" method="get" class="mb-4">
-            <div class="input-group">
-                <input type="text" name="searchTerm" class="form-control" placeholder="Search products...">
-                <button class="btn btn-primary" type="submit">Search</button>
+<div class="container mt-4">
+    <div class="row mb-5">
+        <div class="col">
+            <div class="page-header">
+                <h1 class="page-title">Our Products</h1>
+                <p class="page-subtitle">Discover our curated collection of premium products</p>
             </div>
-        </form>
+            
+            <!-- Category Filter -->
+            <div class="filters-section">
+                <h3 class="filters-title">
+                    <i class="fas fa-filter me-2"></i>Find Your Perfect Product
+                </h3>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <form asp-action="Index" method="get" class="filter-form">
+                            <div class="filter-group">
+                                <label class="filter-label">
+                                    <i class="fas fa-tags me-1"></i>Filter by Category
+                                </label>
+                                <div class="filter-input">
+                                    <select name="categoryId" class="form-select category-select" onchange="this.form.submit()">
+                                        <option value="">🏷️ All Categories</option>
+                                        @foreach (var category in ViewBag.Categories as List<Category>)
+                                        {
+                                            <option value="@category.Id" @(ViewBag.SelectedCategoryId?.ToString() == category.Id.ToString() ? "selected" : "")>
+                                                @category.Name
+                                            </option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <input type="hidden" name="searchTerm" value="@ViewBag.SearchTerm" />
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <form asp-action="Search" asp-controller="Products" method="get" class="search-form">
+                            <div class="filter-group">
+                                <label class="filter-label">
+                                    <i class="fas fa-search me-1"></i>Search Products
+                                </label>
+                                <div class="search-input-group">
+                                    <input type="text" name="searchTerm" class="form-control search-input" 
+                                           placeholder="🔍 What are you looking for?" value="@ViewBag.SearchTerm">
+                                    <button class="btn btn-primary search-btn" type="submit">
+                                        <i class="fas fa-search"></i>
+                                        <span class="btn-text">Search</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="active-filters">
+                    @if (!string.IsNullOrEmpty(ViewBag.SearchTerm))
+                    {
+                        <span class="filter-tag">
+                            <i class="fas fa-search me-1"></i>
+                            Search: "@ViewBag.SearchTerm"
+                            <a asp-action="Index" class="filter-remove"><i class="fas fa-times"></i></a>
+                        </span>
+                    }
+                    @if (ViewBag.SelectedCategoryId != null)
+                    {
+                        var selectedCategory = (ViewBag.Categories as List<Category>)?.FirstOrDefault(c => c.Id.ToString() == ViewBag.SelectedCategoryId.ToString());
+                        if (selectedCategory != null)
+                        {
+                            <span class="filter-tag">
+                                <i class="fas fa-tag me-1"></i>
+                                Category: @selectedCategory.Name
+                                <a asp-action="Index" asp-route-searchTerm="@ViewBag.SearchTerm" class="filter-remove"><i class="fas fa-times"></i></a>
+                            </span>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="row g-4">
-    @foreach (var product in Model)
-    {
-        <div class="col-md-3">
-            <div class="card h-100 product">
-                <div class="card-img-wrapper">
-                    <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name" />
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">@product.Name</h5>
-                    <p class="card-text text-muted">@product.Description</p>
-                    <div class="mt-auto">
-                        <p class="price h4 mb-3">$@product.Price.ToString("0.00")</p>
-                        <form asp-action="AddToCart" asp-controller="Cart" method="post">
-                            <input type="hidden" name="productId" value="@product.Id" />
-                            <div class="input-group mb-3">
-                                <select name="quantity" class="form-select">
-                                    @for (int i = 1; i <= 10; i++)
-                                    {
-                                        <option value="@i">@i</option>
-                                    }
-                                </select>
-                                <button type="submit" class="btn btn-warning">Add to Cart</button>
-                            </div>
-                        </form>
-                        <a href="@Url.Action("Details", "Products", new { id = product.Id })" 
-                           class="btn btn-primary w-100">View Details</a>
+<div class="products-grid-container">
+    <div class="products-header">
+        <div class="row align-items-center mb-4">
+            <div class="col-md-6">
+                <h2 class="products-count">
+                    @Model.Count() Products Found
+                    @if (!string.IsNullOrEmpty(ViewBag.SearchTerm) || ViewBag.SelectedCategoryId != null)
+                    {
+                        <span class="text-muted">matching your criteria</span>
+                    }
+                </h2>
+            </div>
+            <div class="col-md-6">
+                <div class="view-options">
+                    <span class="view-label">View:</span>
+                    <div class="view-buttons">
+                        <button class="view-btn active" data-view="grid">
+                            <i class="fas fa-th"></i>
+                        </button>
+                        <button class="view-btn" data-view="list">
+                            <i class="fas fa-list"></i>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    
+    <div class="row g-4" id="products-grid">
+        @foreach (var product in Model)
+        {
+            <div class="col-xl-3 col-lg-4 col-md-6 product-item">
+                <div class="card h-100 product">
+                    <div class="product-badge-container">
+                        @if (product.Category != null)
+                        {
+                            <span class="product-badge">@product.Category.Name</span>
+                        }
+                        <div class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-img-wrapper">
+                        <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name" />
+                        <div class="product-overlay">
+                            <a href="@Url.Action("Details", "Products", new { id = product.Id })" 
+                               class="btn btn-overlay">
+                                <i class="fas fa-eye me-1"></i>Quick View
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Name</h5>
+                        <p class="card-text text-muted">@product.Description</p>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-text">(4.0)</span>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="price-section">
+                                <span class="price">$@product.Price.ToString("0.00")</span>
+                                <span class="price-old">$@((product.Price * 1.2m).ToString("0.00"))</span>
+                            </div>
+                            <form asp-action="AddToCart" asp-controller="Cart" method="post">
+                                <input type="hidden" name="productId" value="@product.Id" />
+                                <div class="quantity-cart-group mb-3">
+                                    <select name="quantity" class="form-select quantity-select-small">
+                                        @for (int i = 1; i <= 10; i++)
+                                        {
+                                            <option value="@i">@i</option>
+                                        }
+                                    </select>
+                                    <button type="submit" class="btn btn-warning flex-grow-1">
+                                        <i class="fas fa-cart-plus me-1"></i>Add to Cart
+                                    </button>
+                                </div>
+                            </form>
+                            <a href="@Url.Action("Details", "Products", new { id = product.Id })" 
+                               class="btn btn-primary w-100">
+                                <i class="fas fa-info-circle me-1"></i>View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    
+    @if (!Model.Any())
+    {
+        <div class="no-products">
+            <div class="no-products-icon">
+                <i class="fas fa-search"></i>
+            </div>
+            <h3 class="no-products-title">No products found</h3>
+            <p class="no-products-text">Try adjusting your search criteria or browse all categories.</p>
+            <a asp-action="Index" class="btn btn-primary">
+                <i class="fas fa-refresh me-1"></i>Clear Filters
+            </a>
+        </div>
     }
 </div>
-
-@section Scripts {
-    <script>
-        function filterByCategory() {
-            var category = document.getElementById('categoryFilter').value;
-            window.location.href = '/Products/Index' + (category ? '?category=' + category : '');
-        }
-    </script>
-}

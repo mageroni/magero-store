@@ -48,6 +48,11 @@ public class Program
         app.UseSession();
 
         app.MapControllerRoute(
+            name: "productsByCategory",
+            pattern: "Products/Category/{categoryId:int}",
+            defaults: new { controller = "Products", action = "Index" });
+
+        app.MapControllerRoute(
             name: "default",
             pattern: "{controller=Home}/{action=Index}/{id?}");
 

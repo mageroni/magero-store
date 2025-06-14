@@ -5,20 +5,68 @@
     Layout = "_Layout";
 }
 
-<div class="row mb-4">
-    <div class="col text-center">
-        <h1 class="display-4">Welcome to Magero Store</h1>
-        <p class="lead">Your one-stop shop for amazing products</p>
+<!-- Hero Section -->
+<div class="hero-section">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1 class="hero-title">Welcome to Magero Store</h1>
+            <p class="hero-subtitle">Discover premium products curated just for you</p>
+            <div class="hero-actions">
+                <a asp-controller="Products" asp-action="Index" class="btn btn-hero-primary">
+                    <i class="fas fa-shopping-bag me-2"></i>Shop Now
+                </a>
+                <a asp-controller="Categories" asp-action="Index" class="btn btn-hero-secondary">
+                    <i class="fas fa-th-large me-2"></i>Browse Categories
+                </a>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Products</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10K+</div>
+                <div class="stat-label">Happy Customers</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Support</div>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="row my-4">
-    <div class="col-md-6 mx-auto text-center">
-        <div class="card mb-4">
-            <div class="card-body">
-                <h5 class="card-title">Start Shopping</h5>
-                <p class="card-text">Browse our collection of products and find what you need.</p>
-                <a asp-controller="Products" asp-action="Index" class="btn btn-primary">View Products</a>
+<!-- Features Section -->
+<div class="features-section">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3 class="feature-title">Fast Shipping</h3>
+                    <p class="feature-description">Free shipping on orders over $50. Get your products delivered quickly and safely.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Secure Shopping</h3>
+                    <p class="feature-description">Your privacy and security are our top priority. Shop with confidence.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-undo-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Easy Returns</h3>
+                    <p class="feature-description">30-day return policy. Not satisfied? Return it hassle-free.</p>
+                </div>
             </div>
         </div>
     </div>
