@@ -5,70 +5,92 @@
     Layout = "_Layout";
 }
 
-<div class="row mb-4">
-    <div class="col">
-        <h1 class="display-4">Our Products</h1>
-        
-        <!-- Category Filter -->
-        <div class="row mb-3">
-            <div class="col-md-6">
-                <form asp-action="Index" method="get" class="d-flex">
-                    <select name="categoryId" class="form-select me-2" onchange="this.form.submit()">
-                        <option value="">All Categories</option>
-                        @foreach (var category in ViewBag.Categories as List<Category>)
-                        {
-                            <option value="@category.Id" @(ViewBag.SelectedCategoryId?.ToString() == category.Id.ToString() ? "selected" : "")>
-                                @category.Name
-                            </option>
-                        }
-                    </select>
-                    <input type="hidden" name="searchTerm" value="@ViewBag.SearchTerm" />
-                </form>
+<div class="container mt-4">
+    <div class="row mb-5">
+        <div class="col">
+            <div class="page-header">
+                <h1 class="page-title">Our Products</h1>
+                <p class="page-subtitle">Discover our curated collection of premium products</p>
             </div>
-            <div class="col-md-6">
-                <form asp-action="Search" asp-controller="Products" method="get" class="d-flex">
-                    <input type="text" name="searchTerm" class="form-control me-2" placeholder="Search products..." value="@ViewBag.SearchTerm">
-                    <button class="btn btn-primary" type="submit">Search</button>
-                </form>
+            
+            <!-- Category Filter -->
+            <div class="filters-section">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <form asp-action="Index" method="get" class="filter-form">
+                            <div class="filter-group">
+                                <label class="filter-label">Filter by Category</label>
+                                <div class="filter-input">
+                                    <select name="categoryId" class="form-select category-select" onchange="this.form.submit()">
+                                        <option value="">All Categories</option>
+                                        @foreach (var category in ViewBag.Categories as List<Category>)
+                                        {
+                                            <option value="@category.Id" @(ViewBag.SelectedCategoryId?.ToString() == category.Id.ToString() ? "selected" : "")>
+                                                @category.Name
+                                            </option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <input type="hidden" name="searchTerm" value="@ViewBag.SearchTerm" />
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <form asp-action="Search" asp-controller="Products" method="get" class="search-form">
+                            <div class="filter-group">
+                                <label class="filter-label">Search Products</label>
+                                <div class="search-input-group">
+                                    <input type="text" name="searchTerm" class="form-control search-input" 
+                                           placeholder="Search products..." value="@ViewBag.SearchTerm">
+                                    <button class="btn btn-primary search-btn" type="submit">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="row g-4">
-    @foreach (var product in Model)
-    {
-        <div class="col-md-3">
-            <div class="card h-100 product">
-                <div class="card-img-wrapper">
-                    <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name" />
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">@product.Name</h5>
-                    @if (product.Category != null)
-                    {
-                        <span class="badge bg-secondary mb-2">@product.Category.Name</span>
-                    }
-                    <p class="card-text text-muted">@product.Description</p>
-                    <div class="mt-auto">
-                        <p class="price h4 mb-3">$@product.Price.ToString("0.00")</p>
-                        <form asp-action="AddToCart" asp-controller="Cart" method="post">
-                            <input type="hidden" name="productId" value="@product.Id" />
-                            <div class="input-group mb-3">
-                                <select name="quantity" class="form-select">
-                                    @for (int i = 1; i <= 10; i++)
-                                    {
-                                        <option value="@i">@i</option>
-                                    }
-                                </select>
-                                <button type="submit" class="btn btn-warning">Add to Cart</button>
-                            </div>
-                        </form>
-                        <a href="@Url.Action("Details", "Products", new { id = product.Id })" 
-                           class="btn btn-primary w-100">View Details</a>
+<div class="products-grid-container">
+    <div class="row g-4">
+        @foreach (var product in Model)
+        {
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card h-100 product">
+                    <div class="card-img-wrapper">
+                        <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name" />
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Name</h5>
+                        @if (product.Category != null)
+                        {
+                            <span class="badge bg-gradient-secondary mb-2">@product.Category.Name</span>
+                        }
+                        <p class="card-text text-muted">@product.Description</p>
+                        <div class="mt-auto">
+                            <p class="price h4 mb-3">$@product.Price.ToString("0.00")</p>
+                            <form asp-action="AddToCart" asp-controller="Cart" method="post">
+                                <input type="hidden" name="productId" value="@product.Id" />
+                                <div class="quantity-cart-group mb-3">
+                                    <select name="quantity" class="form-select quantity-select-small">
+                                        @for (int i = 1; i <= 10; i++)
+                                        {
+                                            <option value="@i">@i</option>
+                                        }
+                                    </select>
+                                    <button type="submit" class="btn btn-warning flex-grow-1">Add to Cart</button>
+                                </div>
+                            </form>
+                            <a href="@Url.Action("Details", "Products", new { id = product.Id })" 
+                               class="btn btn-primary w-100">View Details</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    }
+        }
+    </div>
 </div>
